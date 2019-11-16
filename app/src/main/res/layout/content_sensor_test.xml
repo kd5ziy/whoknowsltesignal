@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".SensorTest"
+    tools:showIn="@layout/activity_sensor_test">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/sensor_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/debug_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/debug_area"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/label_lat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/label_latitude"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_Long" />
+
+        <EditText
+            android:id="@+id/text_long_map"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="55dp"
+            android:layout_marginRight="55dp"
+            android:hint="@string/hint_longitude_display"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/label_Long"
+            app:layout_constraintTop_toBottomOf="@+id/debug_area" />
+
+        <EditText
+            android:id="@+id/text_lat_map"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="55dp"
+            android:layout_marginRight="55dp"
+            android:hint="@string/hint_latitude_display"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/label_lat"
+            app:layout_constraintTop_toBottomOf="@+id/text_long_map" />
+
+        <TextView
+            android:id="@+id/label_lte_strength"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/label_lte_signal_db"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_update_location" />
+
+        <Button
+            android:id="@+id/button_update_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:onClick="updateGPSLocation"
+            android:text="@string/button_update_location"
+            app:layout_constraintEnd_toStartOf="@+id/button_get_fused_location"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_lat_map" />
+
+        <EditText
+            android:id="@+id/text_lte_strength"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="55dp"
+            android:layout_marginRight="55dp"
+            android:gravity="left"
+            android:hint="@string/text_lte_strength"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.521"
+            app:layout_constraintStart_toEndOf="@+id/label_lte_strength"
+            app:layout_constraintTop_toBottomOf="@+id/button_update_location" />
+
+        <TextView
+            android:id="@+id/label_Long"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/label_longitude"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/debug_area" />
+
+        <Button
+            android:id="@+id/button_update_lte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:onClick="updateLTESignalStrength"
+            android:text="@string/button_update_lte"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_lte_strength" />
+
+        <TextView
+            android:id="@+id/textView_StepCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/step_count"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_update_lte" />
+
+        <EditText
+            android:id="@+id/text_step_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="@string/shows_number_of_steps"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView_StepCount"
+            app:layout_constraintTop_toBottomOf="@+id/button_update_lte" />
+
+        <Button
+            android:id="@+id/button_register_step_counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="registerStepCounter"
+            android:text="@string/register_step_counter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_step_count" />
+
+        <TextView
+            android:id="@+id/label_delay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="batch delay (ms):"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_StepCount" />
+
+        <EditText
+            android:id="@+id/text_batch_delay"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:ems="10"
+            android:hint="Enter batch delay in ms"
+            android:inputType="number"
+            android:text="5"
+            app:layout_constraintEnd_toStartOf="@+id/button_register_step_counter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_delay" />
+
+        <TextView
+            android:id="@+id/label_orientation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Orientation"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_batch_delay" />
+
+        <EditText
+            android:id="@+id/text_orientation_x"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:ems="10"
+            android:hint="X"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toEndOf="@+id/label_orientation"
+            app:layout_constraintTop_toBottomOf="@+id/button_register_step_counter" />
+
+        <EditText
+            android:id="@+id/text_orientation_y"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:ems="10"
+            android:hint="Y"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toEndOf="@+id/text_orientation_x"
+            app:layout_constraintTop_toBottomOf="@+id/button_register_step_counter" />
+
+        <Button
+            android:id="@+id/button_register_orientation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="registerOrientation"
+            android:text="Register Orientation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_orientation_z" />
+
+        <Button
+            android:id="@+id/button_get_fused_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Get Fused Location"
+            android:onClick="getFusedLocation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_lat_map" />
+
+        <EditText
+            android:id="@+id/text_orientation_z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Z"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_orientation_x" />
+
+        <TextView
+            android:id="@+id/label_magnetic_direction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Magnetic Sensor"
+            app:layout_constraintEnd_toStartOf="@+id/text_mag_sensor_data"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_register_orientation" />
+
+        <EditText
+            android:id="@+id/text_mag_sensor_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="Mag Sensor Data"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_register_orientation" />
+
+        <Button
+            android:id="@+id/button_update_mag_sensor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get Mag Data"
+            android:onClick="getMagSensorData"
+            app:layout_constraintEnd_toStartOf="@+id/text_mag_sensor_data"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_magnetic_direction" />
+
+        <EditText
+            android:id="@+id/text_mag_reading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hapticFeedbackEnabled="true"
+            android:hint="mag reading"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button_update_mag_sensor"
+            app:layout_constraintTop_toBottomOf="@+id/text_mag_sensor_data" />
+
+        <EditText
+            android:id="@+id/text_orientation_reading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="orientation reading"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_mag_reading" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.core.widget.NestedScrollView>
